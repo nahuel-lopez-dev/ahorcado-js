@@ -54,7 +54,7 @@ function Letra(x, y, ancho, alto, letra){
     this.alto = alto;
     this.letra = letra;
     this.dibuja = dibujaCajaLetra;
-    this.dibujaLetra = dibujaLetraLetra;
+    this.dibujaLetra = dibujaLetra;
 }
 
 /* Funciones */
@@ -72,7 +72,7 @@ function dibujaTecla(){
 }
 
 /* Dibua la letra y su caja */
-function dibujaLetraLetra(){
+function dibujaLetra(){
     var w = this.ancho;
     var h = this.alto;
     ctx.fillStyle = "black";
@@ -84,32 +84,6 @@ function dibujaCajaLetra(){
     ctx.strokeStyle = "black";
     ctx.fillRect(this.x, this.y, this.ancho, this.alto);
     ctx.strokeRect(this.x, this.y, this.ancho, this.alto);
-}
-
-
-/// Funcion para dar una pista la usuario ////
-function pistaFunction(palabra){
-    let pista = ""; // Se crea la variable local pista que contendra nuestra frase de pista
-    switch(palabra){  // Se crea un switch para poder controlar las pistas segun la palabra 
-        case 'LEON':   // Se debera hacer un case por cada palabra 
-            pista = "Ruge y es fuerte";
-            break;     // Es importante el break en cada case 
-        case 'CABALLO':
-            pista = "Hay de tierra y hay de mar";
-            break;
-        case 'PERRO':
-            pista = "El mejor amigo del hombre";
-            break;
-        case 'GATO':
-            pista = "Son tiernos pero arañan";
-            break;
-        default:  // El defaul se puede omitir // 
-            pista="No hay pista aun xP";
-    }
-    // Pintamos la palabra en el canvas , en este ejemplo se pinta arriba a la izquierda //
-    ctx.fillStyle = "black";  // Aqui ponemos el color de la letra
-    ctx.font = "bold 20px Courier";  // aqui ponemos el tipo y tamaño de la letra
-    ctx.fillText(pista, 10, 15);  // aqui ponemos la frase en nuestro caso la variable pista , seguido de la posx y posy
 }
 
         
@@ -147,7 +121,7 @@ function pintaPalabra(){
     var p = Math.floor(Math.random()*palabras_array.length);
     palabra = palabras_array[p];
 
-    pistaFunction(palabra);
+    // pistaFunction(palabra);
 
     var w = canvas.width;
     var len = palabra.length;
@@ -157,8 +131,8 @@ function pintaPalabra(){
     var lon = 50;
     var x = (w - (lon+margen) *len)/2;
     for(var i=0; i<palabra.length; i++){
-        letra = palabra.substr(i,1);
-        miLetra = new Letra(x, y, lon, lon, letra);
+        var letra = palabra.substr(i,1);
+        var miLetra = new Letra(x, y, lon, lon, letra);
         miLetra.dibuja();
         letras_array.push(miLetra);
         x += lon + margen;
@@ -207,7 +181,7 @@ function selecciona(e){
     }
     if (i < teclas_array.length){
         for (var i = 0 ; i < palabra.length ; i++){ 
-            letra = palabra.substr(i, 1);
+            var letra = palabra.substr(i, 1);
             if (letra == tecla.letra){ /* comparamos y vemos si acerto la letra */
                 caja = letras_array[i];
                 caja.dibujaLetra();
@@ -233,11 +207,11 @@ function gameOver(errores){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "black";
 
-    ctx.font = "bold 50px Courier";
+    ctx.font = "bold 35px Courier";
     if (errores < 5){
-        ctx.fillText("Muy bien, la palabra es: ", 110, 280);
+        ctx.fillText("Ganaste ¡Felicidades!, la palabra es: ", 110, 280);
     } else {
-        ctx.fillText("Lo sentimos, la palabra era: ", 110, 280);
+        ctx.fillText("Game over!, la palabra era: ", 110, 280);
     }
     
     ctx.font = "bold 80px Courier";

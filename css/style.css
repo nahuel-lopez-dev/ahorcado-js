@@ -173,9 +173,9 @@ button{
   border: 2px solid black;
 }
 #boton:hover{ /* Estilo que se activa al pasar el puntero sobre el boton */
-  background-color: lightcoral;
+  background-color: var(--colorCuatro);
   font-size: 22px;
-  border: groove 4px red;
+  border: 2px solid var(--colorSeis);
 }
 
 #containerCanvas{

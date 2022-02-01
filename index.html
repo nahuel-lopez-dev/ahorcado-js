@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="description"
+    content="Este es el juego del ahorcado, que forma parte de un reto del programa de Alura, Principiante en programación">
+  <!-- Imagen para el título de la pestaña -->
+  <link rel="icon" type="favicon/x-icon" href="#">
+  <!-- Enlaces a google font: letra "Nunito" -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,300&display=swap" rel="stylesheet">
+  <!-- Enlaces a google font: letra "Opens Sans" -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <!-- Titulo de la pestaña-->
+  <title>Ahorcado</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <header class="containerHeader">
+    <h1 class="titulo">Ahorcado</h1>
+    <h2 class="subtitulo">Oracle + <span>alura LATAM</span></h2>
+  </header>
+
+  <h3>... No pierdas la cabeza</h3>
+  <section class="containerSection">
+    <!-- <h3>Ahorcado by Nahuel-DevOne</h3> -->
+    <div class="containerApp">
+      <button id="iniciarJuego">INICIAR JUEGO</button>
+      <input type="text" id="input-nueva-palabra" placeholder="Escriba una nueva palabra">
+      <button id="agregarPalabra">AGREGAR PALABRA</button>
+    </div>
+    <div">
+      <canvas id="ahorcado"></canvas>
+    </div>
+  </section>
+  
+  <footer class="containerFooter">
+    <a href="#input">
+      <h4>Ahorcado</h4>
+    </a>
+    <div class="containerSocialMedia">
+      <a href="https://www.linkedin.com/in/nahuel-developer/" target="_blank">
+        <img class="imgSocialMedia" src="./img/linkedin.svg" alt="logo de Linkedin">
+      </a>
+      <a href="https://github.com/Nahuel-DevOne" target="_blank">
+        <img class="imgSocialMedia" src="./img/github.svg" alt="logo de GitHub">
+      </a>
+    </div>
+    <div>
+      <h5>Programa ONE</h5>
+      <h5>Nahuel-DevOne &copy; 2022</h5>
+    </div>
+  </footer>
+  <script type="text/javascript" src="js/canvas.js"></script>
+  <script type="text/javascript" src="js/ahorcado.js"></script>
+</body>
+
+</html>

@@ -35,8 +35,11 @@
       <input type="text" id="input-nueva-palabra" placeholder="Escriba una nueva palabra">
       <button id="agregarPalabra">AGREGAR PALABRA</button>
     </div>
-    <div">
-      <canvas id="ahorcado"></canvas>
+    
+    <div id="containerCanvas">
+      <canvas id="pantalla" width="960px" height="450px"></canvas>
+      <!-- El boton que nos sirve para recargar la pagina y asi generar una nueva palabra y volver a jugar -->
+      <button id="boton" type="reset" onclick="javascript:window.location.reload();">Volver a Jugar</button>
     </div>
   </section>
   
@@ -46,10 +49,10 @@
     </a>
     <div class="containerSocialMedia">
       <a href="https://www.linkedin.com/in/nahuel-developer/" target="_blank">
-        <img class="imgSocialMedia" src="./img/linkedin.svg" alt="logo de Linkedin">
+        <img class="imgSocialMedia" src="imagenes/linkedin.svg" alt="logo de Linkedin">
       </a>
       <a href="https://github.com/Nahuel-DevOne" target="_blank">
-        <img class="imgSocialMedia" src="./img/github.svg" alt="logo de GitHub">
+        <img class="imgSocialMedia" src="imagenes/github.svg" alt="logo de GitHub">
       </a>
     </div>
     <div>

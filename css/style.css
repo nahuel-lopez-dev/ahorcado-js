@@ -174,7 +174,6 @@ button{
 }
 #boton:hover{ /* Estilo que se activa al pasar el puntero sobre el boton */
   background-color: var(--colorCuatro);
-  font-size: 22px;
   border: 2px solid var(--colorSeis);
 }
 
@@ -186,10 +185,11 @@ button{
 }
 
 canvas{
-  background-color: var(--colorContainer);
+  background-color: white;
   /* min-width: 90vw;
   min-height: 45vh;
   margin-bottom: 1rem; */
+  border: 1px solid var(--colorCuatro);
   box-shadow: 0px 0px 7px #ccc;
 }
 

@@ -4,7 +4,7 @@ let canvas;
 let palabra;
 let letras = "QWERTYUIOPASDFGHJKLÑZXCVBNM";
 let colorTecla = "#212529";
-let colorMargen = "red";
+let colorMargen = "rgb(253, 103, 3)";
 let inicioX = 200;
 let inicioY = 300;
 let lon = 35;
@@ -149,16 +149,8 @@ function horca(errores){
     var imagen = new Image();
     imagen.src = "imagenes/ahorcado"+errores+".jpg";
     imagen.onload = function(){
-        ctx.drawImage(imagen, 390, 0, 230, 230);
+        ctx.drawImage(imagen, 0, 0, 230, 230);
     }
-    /*************************************************
-    // Imagen 2 mas pequeña a un lado de la horca //       
-    var imagen = new Image();
-    imagen.src = "imagenes/ahorcado"+errores+".png";
-    imagen.onload = function(){
-        ctx.drawImage(imagen, 620, 0, 100, 100);
-    }
-    *************************************************/
 }
 
 /* ajustar coordenadas */
@@ -197,7 +189,7 @@ function selecciona(e){
         if (bandera == false){ /* Si falla aumenta los errores y checa si perdio para mandar a la funcion gameover */
             errores++;
             horca(errores);
-            if (errores == 5) gameOver(errores);
+            if (errores == 6) gameOver(errores);
         }
         /* Borra la tecla que se a presionado */
         ctx.clearRect(tecla.x - 1, tecla.y - 1, tecla.ancho + 2, tecla.alto + 2);
@@ -213,7 +205,7 @@ function gameOver(errores){
     ctx.fillStyle = "black";
 
     ctx.font = "bold 35px Courier";
-    if (errores < 5){
+    if (errores < 6){
         ctx.fillText("Ganaste ¡Felicidades!, la palabra es: ", 110, 280);
     } else {
         ctx.fillText("Game over!, la palabra era: ", 110, 280);

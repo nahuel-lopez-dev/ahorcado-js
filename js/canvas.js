@@ -1,24 +1,24 @@
 /* Variables */
-var ctx;
-var canvas;
-var palabra;
-var letras = "QWERTYUIOPASDFGHJKLÑZXCVBNM";
-var colorTecla = "#212529";
-var colorMargen = "red";
-var inicioX = 200;
-var inicioY = 300;
-var lon = 35;
-var margen = 20;
-var pistaText = "";
+let ctx;
+let canvas;
+let palabra;
+let letras = "QWERTYUIOPASDFGHJKLÑZXCVBNM";
+let colorTecla = "#212529";
+let colorMargen = "red";
+let inicioX = 200;
+let inicioY = 300;
+let lon = 35;
+let margen = 20;
+let pistaText = "";
 
 /* Arreglos */
-var teclas_array = new Array();
-var letras_array = new Array();
-var palabras_array = new Array();
+let teclas_array = new Array();
+let letras_array = new Array();
+let palabras_array = new Array();
 
 /* Variables de control */
-var aciertos = 0;
-var errores = 0;
+let aciertos = 0;
+let errores = 0;
 
 /* Palabras */
 palabras_array.push("LEON");
@@ -36,6 +36,13 @@ palabras_array.push("AVESTRUZ");
 palabras_array.push("OCELOTE");
 palabras_array.push("MUSARAÑA");
 palabras_array.push("AGUILA");
+
+const nuevaPalabra = document.querySelector("#nuevaPalabra");
+const agregarPalabra = document.querySelector("#agregarPalabra");
+agregarPalabra.addEventListener("click", function(){
+    palabras_array.push("nuevaPalabra.value")
+    nuevaPalabra.value = '';
+})
         
 /* Objetos */
 function Tecla(x, y, ancho, alto, letra){
@@ -120,8 +127,6 @@ function teclado(){
 function pintaPalabra(){
     var p = Math.floor(Math.random()*palabras_array.length);
     palabra = palabras_array[p];
-
-    // pistaFunction(palabra);
 
     var w = canvas.width;
     var len = palabra.length;

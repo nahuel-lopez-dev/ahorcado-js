@@ -24,7 +24,7 @@ let errores = 0;
 const nuevaPalabra = document.querySelector("#nuevaPalabra");
 const agregarPalabra = document.querySelector("#agregarPalabra");
 agregarPalabra.addEventListener("click", function(){
-    palabras_array.push("nuevaPalabra.value")
+    palabras_array.push(nuevaPalabra.value)
     console.log(nuevaPalabra.value);
     nuevaPalabra.value = '';
 })

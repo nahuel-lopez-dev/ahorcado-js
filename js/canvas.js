@@ -20,6 +20,16 @@ let palabras_array = new Array();
 let aciertos = 0;
 let errores = 0;
 
+
+const nuevaPalabra = document.querySelector("#nuevaPalabra");
+const agregarPalabra = document.querySelector("#agregarPalabra");
+agregarPalabra.addEventListener("click", function(){
+    palabras_array.push("nuevaPalabra.value")
+    console.log(nuevaPalabra.value);
+    nuevaPalabra.value = '';
+})
+
+
 /* Palabras */
 palabras_array.push("LEON");
 palabras_array.push("CABALLO");
@@ -37,12 +47,6 @@ palabras_array.push("OCELOTE");
 palabras_array.push("MUSARAÑA");
 palabras_array.push("AGUILA");
 
-const nuevaPalabra = document.querySelector("#nuevaPalabra");
-const agregarPalabra = document.querySelector("#agregarPalabra");
-agregarPalabra.addEventListener("click", function(){
-    palabras_array.push("nuevaPalabra.value")
-    nuevaPalabra.value = '';
-})
         
 /* Objetos */
 function Tecla(x, y, ancho, alto, letra){

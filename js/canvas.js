@@ -26,26 +26,27 @@ const agregarPalabra = document.querySelector("#agregarPalabra");
 agregarPalabra.addEventListener("click", function(){
     palabras_array.push(nuevaPalabra.value)
     console.log(nuevaPalabra.value);
+    console.log(palabras_array);
     nuevaPalabra.value = '';
 })
 
 
 /* Palabras */
 palabras_array.push("LEON");
-palabras_array.push("CABALLO");
-palabras_array.push("PERRO");
-palabras_array.push("GATO");
-palabras_array.push("LAGARTIJA");
-palabras_array.push("RINOCERONTE");
-palabras_array.push("TIBURON");
-palabras_array.push("CARACOL");
-palabras_array.push("ALACRAN");
-palabras_array.push("ARAÑA");
-palabras_array.push("CHAPULIN");
-palabras_array.push("AVESTRUZ");
-palabras_array.push("OCELOTE");
-palabras_array.push("MUSARAÑA");
-palabras_array.push("AGUILA");
+// palabras_array.push("CABALLO");
+// palabras_array.push("PERRO");
+// palabras_array.push("GATO");
+// palabras_array.push("LAGARTIJA");
+// palabras_array.push("RINOCERONTE");
+// palabras_array.push("TIBURON");
+// palabras_array.push("CARACOL");
+// palabras_array.push("ALACRAN");
+// palabras_array.push("ARAÑA");
+// palabras_array.push("CHAPULIN");
+// palabras_array.push("AVESTRUZ");
+// palabras_array.push("OCELOTE");
+// palabras_array.push("MUSARAÑA");
+// palabras_array.push("AGUILA");
 
         
 /* Objetos */

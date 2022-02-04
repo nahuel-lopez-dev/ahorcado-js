@@ -226,11 +226,22 @@ function agregaPalabra(){
     console.log(listaPalabras);
     nuevaPalabra.value = '';
 }
+//Valida la palabra a agregar, para solo sean letras minúsculas, sin acentos ni caracteres especiales, ni espacios.
+function validaAgregaPalabra(){
+    
+    const pattern = new RegExp('^[A-Z]+$');
+
+    if(pattern.test(nuevaPalabra.value)){
+        agregaPalabra();
+    } else{
+        alert("solo letras mayúsculas, sin espacios sin acentos ni caracteres especiales")
+    }
+}
 
 
 /***** Eventos *****/
 iniciarJuego.addEventListener("click", iniciaJuego);
-agregarPalabra.addEventListener("click", agregaPalabra);
+agregarPalabra.addEventListener("click", validaAgregaPalabra);
 
 
 /***** Detecta si se cargó el contexco en el canvas, e inicia las funciones necesarias para jugar, o se manda msj de error segun sea el caso *****/

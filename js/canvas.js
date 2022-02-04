@@ -12,9 +12,10 @@ let margen = 20;
 let pistaText = "";
 
 /* Arreglos */
-let teclas_array = new Array();
-let letras_array = new Array();
-let palabras_array = new Array();
+/** [] O new Array() es lo mismo */
+let listaTeclas = [];
+let listaLetras = [];
+let listaPalabras = [];
 
 /* Variables de control */
 let aciertos = 0;
@@ -25,23 +26,25 @@ const iniciarJuego = document.querySelector("#iniciarJuego");
 const nuevaPalabra = document.querySelector("#nuevaPalabra");
 const agregarPalabra = document.querySelector("#agregarPalabra");
 
-
 /* Palabras para el juego */
-palabras_array.push("LEON");
-palabras_array.push("CABALLO");
-palabras_array.push("PERRO");
-palabras_array.push("GATO");
-palabras_array.push("LAGARTIJA");
-palabras_array.push("RINOCERONTE");
-palabras_array.push("TIBURON");
-palabras_array.push("CARACOL");
-palabras_array.push("ALACRAN");
-palabras_array.push("ARAÑA");
-palabras_array.push("CHAPULIN");
-palabras_array.push("AVESTRUZ");
-palabras_array.push("OCELOTE");
-palabras_array.push("MUSARAÑA");
-palabras_array.push("AGUILA");
+listaPalabras.push("TIGRE");
+listaPalabras.push("CAMELLO");
+listaPalabras.push("VACA");
+listaPalabras.push("OVEJA");
+listaPalabras.push("LEOPARDO");
+listaPalabras.push("HIPOPOTAMO");
+listaPalabras.push("CANCREJO");
+listaPalabras.push("ZORRO");
+listaPalabras.push("CACHALOTE");
+listaPalabras.push("SUPERMAN");
+listaPalabras.push("BATMAN");
+listaPalabras.push("LUCIERNAGA");
+listaPalabras.push("AHORCADO");
+listaPalabras.push("FRONTEND");
+listaPalabras.push("FULLSTACK");
+listaPalabras.push("GITHUB");
+listaPalabras.push("JAVASCRIPT");
+listaPalabras.push("DAREDEVIL");
 
         
 /***** clases *****/
@@ -106,7 +109,7 @@ function teclado(){
         letra = letras.substr(i,1);
         miLetra = new Tecla(x, y, lon, lon, letra);
         miLetra.dibuja();
-        teclas_array.push(miLetra);
+        listaTeclas.push(miLetra);
         x += lon + margen;
         col++;
         if(col==10){
@@ -124,8 +127,8 @@ function teclado(){
 /***** Obtiene una palabra aleatoriamente y la divide en letras *****/
 function pintaPalabra(){
     // palabras_array.push("TIGRE");
-    var p = Math.floor(Math.random()*palabras_array.length);
-    palabra = palabras_array[p];
+    var p = Math.floor(Math.random()*listaPalabras.length);
+    palabra = listaPalabras[p];
     // palabra = nuevaPalabra.value
     var w = canvas.width;
     var len = palabra.length;
@@ -138,7 +141,7 @@ function pintaPalabra(){
         var letra = palabra.substr(i,1);
         var miLetra = new Letra(x, y, lon, lon, letra);
         miLetra.dibuja();
-        letras_array.push(miLetra);
+        listaLetras.push(miLetra);
         x += lon + margen;
     }
 }
@@ -164,25 +167,25 @@ function selecciona(e){
     var y = pos.y;
     var tecla;
     var bandera = false;
-    for (var i = 0; i < teclas_array.length; i++){
-        tecla = teclas_array[i];
+    for (var i = 0; i < listaTeclas.length; i++){
+        tecla = listaTeclas[i];
         if (tecla.x > 0){
             if ((x > tecla.x) && (x < tecla.x + tecla.ancho) && (y > tecla.y) && (y < tecla.y + tecla.alto)){
                 break;
             }
         }
     }
-    if (i < teclas_array.length){
+    if (i < listaTeclas.length){
         for (var i = 0 ; i < palabra.length ; i++){ 
             var letra = palabra.substr(i, 1);
-            if (letra == tecla.letra){ /* comparamos y vemos si acerto la letra */
-                caja = letras_array[i];
+            if (letra == tecla.letra){ /* compara y ve si acerto la letra */
+                caja = listaLetras[i];
                 caja.dibujaLetra();
                 aciertos++;
                 bandera = true;
             }
         }
-        if (bandera == false){ /* Si falla aumenta los errores y chequea si perdio para mandar a la funcion gameover */
+        if (bandera == false){ /* Si falla aumenta los errores y chequea si perdió para mandar a la funcion gameover */
             errores++;
             horca(errores);
             if (errores == 6) gameOver(errores);
@@ -190,7 +193,7 @@ function selecciona(e){
         /* Borra la tecla que se presionó */
         ctx.clearRect(tecla.x - 1, tecla.y - 1, tecla.ancho + 2, tecla.alto + 2);
         tecla.x - 1;
-        /* checa si se gano y manda a la funcion gameover */
+        /* Chequea si se gano y manda a la funcion gameOver */
         if (aciertos == palabra.length) gameOver(errores);
     }
 }
@@ -218,9 +221,9 @@ function iniciaJuego(){
 }
 /** Agrega palabras nuevas al array */
 function agregaPalabra(){
-    palabras_array.push(nuevaPalabra.value)
+    listaPalabras.push(nuevaPalabra.value)
     console.log(nuevaPalabra.value);
-    console.log(palabras_array);
+    console.log(listaPalabras);
     nuevaPalabra.value = '';
 }
 

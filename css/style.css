@@ -163,7 +163,7 @@ button{
   background-color: var(--colorCinco);
 }
 
-#boton{
+#reiniciarJuego{
   background-color: var(--colorUno);
   color: var(--colorContainer);
   font-size: 1rem;
@@ -172,7 +172,7 @@ button{
   padding: 10px;
   border: 2px solid black;
 }
-#boton:hover{ /* Estilo que se activa al pasar el puntero sobre el boton */
+#reiniciarJuego:hover{ /* Estilo que se activa al pasar el puntero sobre el boton */
   background-color: var(--colorCuatro);
   border: 2px solid var(--colorSeis);
 }
@@ -219,6 +219,10 @@ canvas{
   border-radius: 50%;
   border: 1px solid var(--colortitulo);
   padding: 0.2rem;
+}
+
+.hidden{
+  display: none;
 }
 
 @media(max-width: 575.98px){

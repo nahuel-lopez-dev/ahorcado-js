@@ -20,70 +20,66 @@ let palabras_array = new Array();
 let aciertos = 0;
 let errores = 0;
 
-
+/** Selectores */
+const iniciarJuego = document.querySelector("#iniciarJuego");
 const nuevaPalabra = document.querySelector("#nuevaPalabra");
 const agregarPalabra = document.querySelector("#agregarPalabra");
-agregarPalabra.addEventListener("click", function(){
-    palabras_array.push(nuevaPalabra.value)
-    console.log(nuevaPalabra.value);
-    console.log(palabras_array);
-    nuevaPalabra.value = '';
-})
 
 
-/* Palabras */
+/* Palabras para el juego */
 palabras_array.push("LEON");
-// palabras_array.push("CABALLO");
-// palabras_array.push("PERRO");
-// palabras_array.push("GATO");
-// palabras_array.push("LAGARTIJA");
-// palabras_array.push("RINOCERONTE");
-// palabras_array.push("TIBURON");
-// palabras_array.push("CARACOL");
-// palabras_array.push("ALACRAN");
-// palabras_array.push("ARAÑA");
-// palabras_array.push("CHAPULIN");
-// palabras_array.push("AVESTRUZ");
-// palabras_array.push("OCELOTE");
-// palabras_array.push("MUSARAÑA");
-// palabras_array.push("AGUILA");
+palabras_array.push("CABALLO");
+palabras_array.push("PERRO");
+palabras_array.push("GATO");
+palabras_array.push("LAGARTIJA");
+palabras_array.push("RINOCERONTE");
+palabras_array.push("TIBURON");
+palabras_array.push("CARACOL");
+palabras_array.push("ALACRAN");
+palabras_array.push("ARAÑA");
+palabras_array.push("CHAPULIN");
+palabras_array.push("AVESTRUZ");
+palabras_array.push("OCELOTE");
+palabras_array.push("MUSARAÑA");
+palabras_array.push("AGUILA");
 
         
-/* Objetos */
-function Tecla(x, y, ancho, alto, letra){
-    this.x = x;
-    this.y = y;
-    this.ancho = ancho;
-    this.alto = alto;
-    this.letra = letra;
-    this.dibuja = dibujaTecla;
+/***** clases *****/
+class Tecla {
+    constructor(x, y, ancho, alto, letra){
+        this.x = x;
+        this.y = y;
+        this.ancho = ancho;
+        this.alto = alto;
+        this.letra = letra;
+        this.dibuja = dibujaTecla;
+    }
 }
 
-function Letra(x, y, ancho, alto, letra){
-    this.x = x;
-    this.y = y;
-    this.ancho = ancho;
-    this.alto = alto;
-    this.letra = letra;
-    this.dibuja = dibujaCajaLetra;
-    this.dibujaLetra = dibujaLetra;
+class Letra {
+    constructor(x, y, ancho, alto, letra){
+        this.x = x;
+        this.y = y;
+        this.ancho = ancho;
+        this.alto = alto;
+        this.letra = letra;
+        this.dibuja = dibujaCajaLetra;
+        this.dibujaLetra = dibujaLetra;
+    }
 }
 
-/* Funciones */
-
-/* Dibujar Teclas*/
+/* Funciones que podría convertirlos a métodos dentro de las clases */
+/***** Dibuja teclas *****/
 function dibujaTecla(){
     ctx.fillStyle = colorTecla;
     ctx.strokeStyle = colorMargen;
     ctx.fillRect(this.x, this.y, this.ancho, this.alto);
-    ctx.strokeRect(this.x, this.y, this.ancho, this.alto);
-    
+    ctx.strokeRect(this.x, this.y, this.ancho, this.alto);   
     ctx.fillStyle = "white";
     ctx.font = "bold 20px courier";
     ctx.fillText(this.letra, this.x+this.ancho/2-5, this.y+this.alto/2+5);
 }
-
-/* Dibua la letra y su caja */
+/***** Dibuja la letra *****/
 function dibujaLetra(){
     var w = this.ancho;
     var h = this.alto;
@@ -91,15 +87,14 @@ function dibujaLetra(){
     ctx.font = "bold 40px Courier";
     ctx.fillText(this.letra, this.x+w/2-12, this.y+h/2+14);
 }
+/***** Dibuja la caja de la letra *****/
 function dibujaCajaLetra(){
     ctx.fillStyle = "white";
     ctx.strokeStyle = "black";
     ctx.fillRect(this.x, this.y, this.ancho, this.alto);
     ctx.strokeRect(this.x, this.y, this.ancho, this.alto);
 }
-
-        
- /* Distribuir nuestro teclado con sus letras respectivas al acomodo de nuestro array */
+/*****  Distribuir nuestro teclado con sus letras respectivas al acomodo de nuestro array *****/
 function teclado(){
     var ren = 0;
     var col = 0;
@@ -126,13 +121,12 @@ function teclado(){
         y = inicioY + ren * 50;
     }
 }
-
-
-/* aqui obtenemos nuestra palabra aleatoriamente y la dividimos en letras */
+/***** Obtiene una palabra aleatoriamente y la divide en letras *****/
 function pintaPalabra(){
+    // palabras_array.push("TIGRE");
     var p = Math.floor(Math.random()*palabras_array.length);
     palabra = palabras_array[p];
-
+    // palabra = nuevaPalabra.value
     var w = canvas.width;
     var len = palabra.length;
     var ren = 0;
@@ -148,8 +142,7 @@ function pintaPalabra(){
         x += lon + margen;
     }
 }
-
-/* dibujar cadalzo y partes del pj segun sea el caso */
+/***** Va dibujando el ahorcado *****/
 function horca(errores){
     var imagen = new Image();
     imagen.src = "imagenes/ahorcado"+errores+".jpg";
@@ -157,16 +150,14 @@ function horca(errores){
         ctx.drawImage(imagen, 0, 0, 230, 230);
     }
 }
-
-/* ajustar coordenadas */
+/***** ajusta coordenadas *****/
 function ajusta(xx, yy){
     var posCanvas = canvas.getBoundingClientRect();
     var x = xx-posCanvas.left;
     var y = yy-posCanvas.top;
     return{x:x, y:y}
 }
-
-/* Detecta tecla clickeada y la compara con las de la palabra ya elegida al azar */
+/***** Detecta tecla clickeada y la compara con las de la palabra ya elegida al azar *****/
 function selecciona(e){
     var pos = ajusta(e.clientX, e.clientY);
     var x = pos.x;
@@ -191,20 +182,19 @@ function selecciona(e){
                 bandera = true;
             }
         }
-        if (bandera == false){ /* Si falla aumenta los errores y checa si perdio para mandar a la funcion gameover */
+        if (bandera == false){ /* Si falla aumenta los errores y chequea si perdio para mandar a la funcion gameover */
             errores++;
             horca(errores);
             if (errores == 6) gameOver(errores);
         }
-        /* Borra la tecla que se a presionado */
+        /* Borra la tecla que se presionó */
         ctx.clearRect(tecla.x - 1, tecla.y - 1, tecla.ancho + 2, tecla.alto + 2);
         tecla.x - 1;
         /* checa si se gano y manda a la funcion gameover */
         if (aciertos == palabra.length) gameOver(errores);
     }
 }
-
-/* Borramos las teclas y la palabra con sus cajas y mandamos msj segun el caso si se gano o se perdio */
+/***** Borra las teclas y la palabra con sus cajas y se manda un msj segun el caso si se gano o se perdio *****/
 function gameOver(errores){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "black";
@@ -221,8 +211,26 @@ function gameOver(errores){
     ctx.fillText(palabra, lon, 380);
     horca(errores);
 }
+/***** Desoculta e oculta el canvas para dar lugar al juego *****/
+function iniciaJuego(){
+    document.getElementById("pantalla").classList.toggle("hidden");
+    document.getElementById("reiniciarJuego").classList.toggle("hidden");
+}
+/** Agrega palabras nuevas al array */
+function agregaPalabra(){
+    palabras_array.push(nuevaPalabra.value)
+    console.log(nuevaPalabra.value);
+    console.log(palabras_array);
+    nuevaPalabra.value = '';
+}
 
-/* Detectar si se a cargado nuestro contexco en el canvas, iniciamos las funciones necesarias para jugar o se le manda msj de error segun sea el caso */
+
+/***** Eventos *****/
+iniciarJuego.addEventListener("click", iniciaJuego);
+agregarPalabra.addEventListener("click", agregaPalabra);
+
+
+/***** Detecta si se cargó el contexco en el canvas, e inicia las funciones necesarias para jugar, o se manda msj de error segun sea el caso *****/
 window.onload = function(){
     canvas = document.getElementById("pantalla");
     if (canvas && canvas.getContext){

@@ -60,7 +60,7 @@ body{
   text-align: center;
   border-bottom: 2px solid var(--colorContainerCanvas);
   margin-bottom: 2rem;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 .containerSection{
@@ -89,6 +89,11 @@ body{
   color: var(--colortitulo);
   font-family: var(--fuenteUno);
 }
+
+#rope{
+  height: 12vh;
+}
+
 .subtitulo {
   font-size: 2.5rem;
   color: var(--colorCuatro);
@@ -112,7 +117,7 @@ h3{
 h4{
   color: var(--colortitulo);
   margin: 0.25rem;
-  font-size: 1.5rem;
+  font-size: 2rem;
   padding-top: 0.5rem;
   font-family: var(--fuenteDos);
 }
@@ -239,6 +244,10 @@ canvas{
   border-radius: 50%;
   border: 1px solid var(--colortitulo);
   padding: 0.2rem;
+}
+
+#ropeFooter{
+  height: 7vh;
 }
 
 .hidden{

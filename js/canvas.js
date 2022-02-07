@@ -25,6 +25,10 @@ let errores = 0;
 const iniciarJuego = document.querySelector("#iniciarJuego");
 const nuevaPalabra = document.querySelector("#nuevaPalabra");
 const agregarPalabra = document.querySelector("#agregarPalabra");
+/** NO VA A SER NECESARIO, ESCONDO EL CONTAINERAPP CON LA CLASE HIDDEN */
+// iniciarJuego.disabled = false;
+// nuevaPalabra.disabled = false;
+// agregarPalabra.disabled = false
 
 /* Palabras para el juego de a uno */
 listaPalabras.push("TIGRE");
@@ -217,7 +221,11 @@ function iniciaJuego(){
 
     if(listaPalabras.length >= 1 ){
         juego();
-        /** podría agregar funciones para deshabilitar los botones de iniciarJuego y agregarPalabra una vez comenzado el juego. Para que la única opción sea volver a jugar */
+        document.querySelector(".containerApp").classList.add("hidden")
+        /** Podría deshabilitar los botones de iniciarJuego, nuevaPalabra y agregarPalabra una vez iniciado el juego para que el usuario no los vuelva a tocar, pero lo reemplacé por ocultar containerApp agregandole la clase hidden */
+        // iniciarJuego.disabled = true;
+        // nuevaPalabra.disabled = true;
+        // agregaPalabra.disabled = true;
     } 
 }
 /***** comienza el juego *****/
@@ -235,7 +243,6 @@ function juego(){
             }
         }
 }
-
 /** Agrega palabras nuevas al array */
 function agregaPalabra(){
     listaPalabras = [];
@@ -259,20 +266,3 @@ function validaAgregaPalabra(){
 /***** Eventos *****/
 iniciarJuego.addEventListener("click", iniciaJuego);
 agregarPalabra.addEventListener("click", validaAgregaPalabra);
-
-
-/***** Detecta si se cargó el contexco en el canvas, e inicia las funciones necesarias para jugar, o se manda msj de error segun sea el caso *****/
-// window.onload = function(){
-    // canvas = document.getElementById("pantalla");
-    // if (canvas && canvas.getContext){
-    //     pincel = canvas.getContext("2d");
-    //     if(pincel){
-    //         teclado();
-    //         pintaPalabra();
-    //         horca(errores);
-    //         canvas.addEventListener("click", selecciona, false);
-    //     } else {
-    //         alert ("Error al cargar el contexto!");
-    //     }
-    // }
-// }

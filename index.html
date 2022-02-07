@@ -23,8 +23,8 @@
 
 <body>
   <header class="containerHeader">
-    <h1 class="titulo">Ahorcado <span><img id="rope" src="imagenes/rope.png" alt=""></span></h1>
-    <h2 class="subtitulo">Oracle + <span>alura LATAM</span></h2>
+    <h1 class="titulo desplazamientoDer">Ahorcado <span><img id="rope" class="bamboleo" src="imagenes/rope.png" alt=""></span></h1>
+    <h2 class="subtitulo desplazamientoIzq">Oracle + <span>alura LATAM</span></h2>
   </header>
 
   <h3>... No pierdas la cabeza...</h3>
@@ -39,16 +39,16 @@
         </ul>
       </div>
       <a href="#pantalla">
-        <button id="iniciarJuego">INICIAR JUEGO</button>
+        <button id="iniciarJuego" class="trans">INICIAR JUEGO</button>
       </a>
       <input type="text" id="nuevaPalabra" placeholder="Escriba una nueva palabra">
-      <button id="agregarPalabra">AGREGAR PALABRA</button>
+      <button id="agregarPalabra" class="trans">AGREGAR PALABRA</button>
     </div>
     
     <div id="containerCanvas">
       <canvas class="hidden" id="pantalla" width="960px" height="450px"></canvas>
       <!-- El boton que nos sirve para recargar la pagina y asi generar una nueva palabra y volver a jugar -->
-      <button class="hidden" id="reiniciarJuego" type="reset" onclick="javascript:window.location.reload();">Volver a Jugar</button>
+      <button class="hidden trans" id="reiniciarJuego" type="reset" onclick="javascript:window.location.reload();">Volver a Jugar</button>
     </div>
   </section>
   <h3>... tarde o temprano caerás</h3>

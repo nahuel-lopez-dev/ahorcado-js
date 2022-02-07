@@ -254,6 +254,127 @@ canvas{
   display: none;
 }
 
+/* animaciones */
+
+/*animación para hacer bambolear la soga*/
+.bamboleo{
+  animation-name: bamboleo;
+  animation-duration: 4s;
+  animation-iteration-count: 2;
+  animation-timing-function: linear;
+}
+@keyframes bamboleo{
+  /* from{
+    transform: rotateZ(0deg);
+  }
+  to{
+    transform: rotateZ(70deg);
+  } */
+  0%{
+    transform: rotateZ(0deg);
+  }
+  10%{
+    transform: rotateZ(20deg)
+  }
+  20%{
+    transform: rotateZ(10deg)
+  }
+  30%{
+    transform: rotateZ(0deg)
+  }
+  40%{
+    transform: rotateZ(-20deg)
+  }
+  50%{
+    transform: rotateZ(-10deg)
+  }
+  60%{
+    transform: rotateZ(0deg)
+  }
+  70%{
+    transform: rotateZ(10deg)
+  }
+  80%{
+    transform: rotateZ(-10deg)
+  }
+  90%{
+    transform: rotateZ(5deg)
+  }
+  100%{
+    transform: rotateZ(0deg)
+  }
+}
+
+/* animación para desplazar el texto desde la derecha a la izquierda */
+.desplazamientoIzq{
+  animation-name: desplazamientoIzq;
+  animation-duration: 1500ms;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+@keyframes desplazamientoIzq{
+  0%{
+    margin-left: 30vw;
+    /* transform: rotate(360deg); */
+  }
+  25%{
+    margin-left: 24vw;
+    /* transform: rotate(270deg); */
+  }
+  50%{
+    margin-left: 18vw;
+    /* transform: rotate(180deg); */
+  }
+  75%{
+    margin-left: 12vw;
+    /* transform: rotate(90deg); */
+  }
+  100%{
+    margin-left: 0vw;
+    /* transform: rotate(0deg); */
+  }
+}
+
+/* animación para desplazar el texto desde la izquierda a la derecha */
+.desplazamientoDer{
+  animation-name: desplazamientoDer;
+  animation-duration: 1500ms;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+@keyframes desplazamientoDer{
+  0%{
+    margin-right: 30vw;
+    /* transform: rotate(360deg); */
+  }
+  25%{
+    margin-right: 24vw;
+    /* transform: rotate(270deg); */
+  }
+  50%{
+    margin-right: 18vw;
+    /* transform: rotate(180deg); */
+  }
+  75%{
+    margin-right: 12vw;
+    /* transform: rotate(90deg); */
+  }
+  100%{
+    margin-right: 0vw;
+    /* transform: rotate(0deg); */
+  }
+}
+
+/*Clase para agrandar levemente los botones*/
+/*Transición*/
+.trans {
+  transition: all 1s;
+}
+.trans:hover {
+  transform: scale(1.05);
+}
+
+/* media querys para empezar trasladar la versión del juego a mobile */
 @media(max-width: 575.98px){
   .titulo{
     font-size: 2.5rem;

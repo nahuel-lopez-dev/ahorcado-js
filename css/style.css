@@ -53,7 +53,7 @@ body{
 
 .containerHeader{
   /* min-height: 10rem; */
-  background-color: var(--colorContainer);
+  background-color: var(--colorContainerTitulos);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -64,7 +64,7 @@ body{
 }
 
 .containerSection{
-  min-height: 30rem;
+  min-height: 20rem;
   background-color: var(--colorContainer);
   display: flex;
   flex-direction: column;
@@ -79,6 +79,7 @@ body{
   margin: 1rem 0rem 1rem 0rem;
   background-color: var(--colorContainer);
   width: 60%;
+  border-radius: 5px;
   /* min-height: 20rem; */
   box-shadow: 0px 0px 7px #ccc;
 }
@@ -183,7 +184,7 @@ button{
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 canvas{
@@ -199,7 +200,7 @@ canvas{
 /*Clases del footer*/
 .containerFooter{
   min-height: 8rem;
-  background-color: var(--colorContainer);
+  background-color: var(--colorContainerTitulos);
   border-top: 2px solid var(--colorContainerCanvas);
   display: flex;
   flex-flow: row wrap;

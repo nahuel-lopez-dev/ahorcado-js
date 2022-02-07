@@ -26,7 +26,7 @@ const iniciarJuego = document.querySelector("#iniciarJuego");
 const nuevaPalabra = document.querySelector("#nuevaPalabra");
 const agregarPalabra = document.querySelector("#agregarPalabra");
 
-/* Palabras para el juego */
+/* Palabras para el juego de a uno */
 listaPalabras.push("TIGRE");
 listaPalabras.push("CAMELLO");
 listaPalabras.push("VACA");
@@ -45,7 +45,6 @@ listaPalabras.push("FULLSTACK");
 listaPalabras.push("GITHUB");
 listaPalabras.push("JAVASCRIPT");
 listaPalabras.push("DAREDEVIL");
-
         
 /***** clases *****/
 class Tecla {
@@ -126,10 +125,8 @@ function teclado(){
 }
 /***** Obtiene una palabra aleatoriamente y la divide en letras *****/
 function pintaPalabra(){
-    // palabras_array.push("TIGRE");
     var p = Math.floor(Math.random()*listaPalabras.length);
     palabra = listaPalabras[p];
-    // palabra = nuevaPalabra.value
     var w = canvas.width;
     var len = palabra.length;
     var ren = 0;
@@ -208,7 +205,6 @@ function gameOver(errores){
     } else {
         pincel.fillText("Game over!, la palabra era: ", 110, 280);
     }
-    
     pincel.font = "bold 80px Courier";
     lon = (canvas.width - (palabra.length*48))/2;
     pincel.fillText(palabra, lon, 380);
@@ -218,7 +214,28 @@ function gameOver(errores){
 function iniciaJuego(){
     document.getElementById("pantalla").classList.toggle("hidden");
     document.getElementById("reiniciarJuego").classList.toggle("hidden");
+
+    if(listaPalabras.length >= 1 ){
+        juego();
+        /** podría agregar funciones para deshabilitar los botones de iniciarJuego y agregarPalabra una vez comenzado el juego. Para que la única opción sea volver a jugar */
+    } 
 }
+/***** comienza el juego *****/
+function juego(){
+    canvas = document.getElementById("pantalla");
+        if (canvas && canvas.getContext){
+            pincel = canvas.getContext("2d");
+            if(pincel){
+                teclado();
+                pintaPalabra();
+                horca(errores);
+                canvas.addEventListener("click", selecciona, false);
+                } else {
+                    alert ("Error al cargar el contexto!");
+            }
+        }
+}
+
 /** Agrega palabras nuevas al array */
 function agregaPalabra(){
     listaPalabras = [];
@@ -239,24 +256,23 @@ function validaAgregaPalabra(){
     }
 }
 
-
 /***** Eventos *****/
 iniciarJuego.addEventListener("click", iniciaJuego);
 agregarPalabra.addEventListener("click", validaAgregaPalabra);
 
 
 /***** Detecta si se cargó el contexco en el canvas, e inicia las funciones necesarias para jugar, o se manda msj de error segun sea el caso *****/
-window.onload = function(){
-    canvas = document.getElementById("pantalla");
-    if (canvas && canvas.getContext){
-        pincel = canvas.getContext("2d");
-        if(pincel){
-            teclado();
-            pintaPalabra();
-            horca(errores);
-            canvas.addEventListener("click", selecciona, false);
-        } else {
-            alert ("Error al cargar el contexto!");
-        }
-    }
-}
+// window.onload = function(){
+    // canvas = document.getElementById("pantalla");
+    // if (canvas && canvas.getContext){
+    //     pincel = canvas.getContext("2d");
+    //     if(pincel){
+    //         teclado();
+    //         pintaPalabra();
+    //         horca(errores);
+    //         canvas.addEventListener("click", selecciona, false);
+    //     } else {
+    //         alert ("Error al cargar el contexto!");
+    //     }
+    // }
+// }

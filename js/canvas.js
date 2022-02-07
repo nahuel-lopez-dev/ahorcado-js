@@ -205,9 +205,9 @@ function gameOver(errores){
 
     pincel.font = "bold 35px Courier";
     if (errores < 6){
-        pincel.fillText("Ganaste ¡Felicidades!, la palabra es: ", 110, 280);
+        pincel.fillText("Ganaste ¡Felicidades! La palabra es: ", 110, 280);
     } else {
-        pincel.fillText("Game over!, la palabra era: ", 110, 280);
+        pincel.fillText("Game over! La palabra era: ", 110, 280);
     }
     pincel.font = "bold 80px Courier";
     lon = (canvas.width - (palabra.length*48))/2;
@@ -259,7 +259,7 @@ function validaAgregaPalabra(){
     if(pattern.test(nuevaPalabra.value)){
         agregaPalabra();
     } else{
-        alert("solo letras mayúsculas, sin espacios sin acentos ni caracteres especiales")
+        alert("Solo letras mayúsculas, sin espacios sin acentos ni caracteres especiales")
     }
 }
 

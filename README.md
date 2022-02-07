@@ -14,6 +14,23 @@ Consiste en el famoso juego del ahorcado, hecho con HTML5, CSS y JavaScript. No 
 
 - [![Ahorcado](https://img.shields.io/badge/Ahorcado-informational?style=for-the-badge&logo=github&logoColor=fff&color=23272d)](https://nahuel-devone.github.io/ahorcado-js/)
 
+## *Capturas:*
+
+### 1. inicio:
+## ![](imagenes/inicio.jpg)
+
+### 2. juego:
+## ![](imagenes/juego-1.png)
+
+### 3. juego:
+## ![](imagenes/juego-2.png)
+
+### 4. Victoria:
+## ![](imagenes/victoria.png)
+
+### 5. Derrota:
+## ![](imagenes/derrota.png)
+
 ## *Desarrollado con:*
 
 - [Visual Studio Code](https://code.visualstudio.com/)

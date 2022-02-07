@@ -86,7 +86,7 @@ body{
 
 .titulo{
   font-size: 3.25rem;
-  color: var(--colorUno);
+  color: var(--colortitulo);
   font-family: var(--fuenteUno);
 }
 .subtitulo {
@@ -124,6 +124,24 @@ h5{
   margin: 0.25rem;
   margin-bottom: 1.25rem;
   text-align: center;
+}
+
+
+div ul{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: var(--colorContainer);
+  padding: 0.75rem 2rem;
+  margin-top: 0.5rem;
+  border-radius: 5px;
+}
+
+li{
+  /* color: var(--colorContainerCanvas); */
+  color: var(--colortitulo);
+  font-size: 1.1rem;
+  font-family: var(--fuenteDos);
 }
 
 input{
@@ -188,8 +206,6 @@ button{
 }
 
 canvas{
-  /* background-color: #cfcfcf; */
-  /* border: 1px solid var(--colorUno); */
   background-color: #cbcbcb;
   border-radius: 5px;
   box-shadow: 4px 0px 10px rgb(138, 138, 138);

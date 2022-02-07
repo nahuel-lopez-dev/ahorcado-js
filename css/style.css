@@ -33,7 +33,8 @@
 /*Variables globales de trabajo*/
 :root{
   --colorContainer: #f8f9fa;
-  --colorContainerCanvas: #eaeaee;
+  --colorContainerCanvas: #cbcbcb;
+  --colorContainerTitulos:rgb(230, 230, 230);
   --colortitulo: #212529;
   --colorUno: rgb(13, 5, 90);
   --colorDos: #00538c;
@@ -57,7 +58,7 @@ body{
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  border-bottom: 1.5px solid var(--colortitulo);
+  border-bottom: 2px solid var(--colorContainerCanvas);
   margin-bottom: 2rem;
   padding: 1rem;
 }
@@ -84,7 +85,7 @@ body{
 
 .titulo{
   font-size: 3.25rem;
-  color: var(--colortitulo);
+  color: var(--colorUno);
   font-family: var(--fuenteUno);
 }
 .subtitulo {
@@ -104,7 +105,7 @@ h3{
   font-size: 2rem;
   font-family: var(--fuenteUno);
   text-align: center;
-  background-color: var(--colorContainerCanvas);
+  background-color: var(--colorContainerTitulos);
 }
 
 h4{
@@ -185,9 +186,12 @@ button{
 }
 
 canvas{
-  background-color: white;
-  border: 1px solid var(--colorCuatro);
-  box-shadow: 0px 0px 7px #ccc;
+  /* background-color: #cfcfcf; */
+  /* border: 1px solid var(--colorUno); */
+  background-color: #cbcbcb;
+  border-radius: 5px;
+  box-shadow: 4px 0px 10px rgb(138, 138, 138);
+  cursor: pointer;
 }
 
 
@@ -195,11 +199,12 @@ canvas{
 .containerFooter{
   min-height: 8rem;
   background-color: var(--colorContainer);
-  border-top: 1.5px solid var(--colortitulo);
+  border-top: 2px solid var(--colorContainerCanvas);
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
   align-items: center;
+  margin-top: 2rem;
 }
 
 .containerFooter a{

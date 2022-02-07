@@ -1,5 +1,5 @@
 /* Variables */
-let ctx;
+let pincel;
 let canvas;
 let palabra;
 let letras = "QWERTYUIOPASDFGHJKLÑZXCVBNM";
@@ -74,28 +74,28 @@ class Letra {
 /* Funciones que podría convertirlos a métodos dentro de las clases */
 /***** Dibuja teclas *****/
 function dibujaTecla(){
-    ctx.fillStyle = colorTecla;
-    ctx.strokeStyle = colorMargen;
-    ctx.fillRect(this.x, this.y, this.ancho, this.alto);
-    ctx.strokeRect(this.x, this.y, this.ancho, this.alto);   
-    ctx.fillStyle = "white";
-    ctx.font = "bold 20px courier";
-    ctx.fillText(this.letra, this.x+this.ancho/2-5, this.y+this.alto/2+5);
+    pincel.fillStyle = colorTecla;
+    pincel.strokeStyle = colorMargen;
+    pincel.fillRect(this.x, this.y, this.ancho, this.alto);
+    pincel.strokeRect(this.x, this.y, this.ancho, this.alto);   
+    pincel.fillStyle = "white";
+    pincel.font = "bold 20px courier";
+    pincel.fillText(this.letra, this.x+this.ancho/2-5, this.y+this.alto/2+5);
 }
 /***** Dibuja la letra *****/
 function dibujaLetra(){
     var w = this.ancho;
     var h = this.alto;
-    ctx.fillStyle = "black";
-    ctx.font = "bold 40px Courier";
-    ctx.fillText(this.letra, this.x+w/2-12, this.y+h/2+14);
+    pincel.fillStyle = "black";
+    pincel.font = "bold 40px Courier";
+    pincel.fillText(this.letra, this.x+w/2-12, this.y+h/2+14);
 }
 /***** Dibuja la caja de la letra *****/
 function dibujaCajaLetra(){
-    ctx.fillStyle = "white";
-    ctx.strokeStyle = "black";
-    ctx.fillRect(this.x, this.y, this.ancho, this.alto);
-    ctx.strokeRect(this.x, this.y, this.ancho, this.alto);
+    pincel.fillStyle = "white";
+    pincel.strokeStyle = "black";
+    pincel.fillRect(this.x, this.y, this.ancho, this.alto);
+    pincel.strokeRect(this.x, this.y, this.ancho, this.alto);
 }
 /*****  Distribuir nuestro teclado con sus letras respectivas al acomodo de nuestro array *****/
 function teclado(){
@@ -150,7 +150,7 @@ function horca(errores){
     var imagen = new Image();
     imagen.src = "imagenes/ahorcado"+errores+".jpg";
     imagen.onload = function(){
-        ctx.drawImage(imagen, 0, 0, 230, 230);
+        pincel.drawImage(imagen, 0, 0, 220, 220);
     }
 }
 /***** ajusta coordenadas *****/
@@ -191,7 +191,7 @@ function selecciona(e){
             if (errores == 6) gameOver(errores);
         }
         /* Borra la tecla que se presionó */
-        ctx.clearRect(tecla.x - 1, tecla.y - 1, tecla.ancho + 2, tecla.alto + 2);
+        pincel.clearRect(tecla.x - 1, tecla.y - 1, tecla.ancho + 2, tecla.alto + 2);
         tecla.x - 1;
         /* Chequea si se gano y manda a la funcion gameOver */
         if (aciertos == palabra.length) gameOver(errores);
@@ -199,19 +199,19 @@ function selecciona(e){
 }
 /***** Borra las teclas y la palabra con sus cajas y se manda un msj segun el caso si se gano o se perdio *****/
 function gameOver(errores){
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "black";
+    pincel.clearRect(0, 0, canvas.width, canvas.height);
+    pincel.fillStyle = "black";
 
-    ctx.font = "bold 35px Courier";
+    pincel.font = "bold 35px Courier";
     if (errores < 6){
-        ctx.fillText("Ganaste ¡Felicidades!, la palabra es: ", 110, 280);
+        pincel.fillText("Ganaste ¡Felicidades!, la palabra es: ", 110, 280);
     } else {
-        ctx.fillText("Game over!, la palabra era: ", 110, 280);
+        pincel.fillText("Game over!, la palabra era: ", 110, 280);
     }
     
-    ctx.font = "bold 80px Courier";
+    pincel.font = "bold 80px Courier";
     lon = (canvas.width - (palabra.length*48))/2;
-    ctx.fillText(palabra, lon, 380);
+    pincel.fillText(palabra, lon, 380);
     horca(errores);
 }
 /***** Desoculta e oculta el canvas para dar lugar al juego *****/
@@ -221,6 +221,7 @@ function iniciaJuego(){
 }
 /** Agrega palabras nuevas al array */
 function agregaPalabra(){
+    listaPalabras = [];
     listaPalabras.push(nuevaPalabra.value)
     console.log(nuevaPalabra.value);
     console.log(listaPalabras);
@@ -248,8 +249,8 @@ agregarPalabra.addEventListener("click", validaAgregaPalabra);
 window.onload = function(){
     canvas = document.getElementById("pantalla");
     if (canvas && canvas.getContext){
-        ctx = canvas.getContext("2d");
-        if(ctx){
+        pincel = canvas.getContext("2d");
+        if(pincel){
             teclado();
             pintaPalabra();
             horca(errores);

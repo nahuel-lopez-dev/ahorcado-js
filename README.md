@@ -12,7 +12,7 @@ Consiste en el famoso juego del ahorcado, hecho con HTML5, CSS y JavaScript. No 
 
 ## *Version 1.0.0:*
 
-- [![Ahorcado](https://img.shields.io/badge/Ahorcado-informational?style=for-the-badge&logo=github&logoColor=fff&color=23272d)](https://nahuel-devone.github.io/encriptador/)
+- [![Ahorcado](https://img.shields.io/badge/Ahorcado-informational?style=for-the-badge&logo=github&logoColor=fff&color=23272d)](https://nahuel-devone.github.io/ahorcado-js/)
 
 ## *Desarrollado con:*
 
@@ -21,4 +21,4 @@ Consiste en el famoso juego del ahorcado, hecho con HTML5, CSS y JavaScript. No 
 - [CSS](https://developer.mozilla.org/es/docs/Web/CSS)
 - [JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript)
 
-#### *¡Thanks a lot for reading me!* _Yours sincerely_... "**Readme**".
+#### *¡Thanks a lot for reading me!* _Yours sincerely_... "**DevOne**".
